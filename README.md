@@ -1,4 +1,4 @@
-<h1 style="border-bottom: none;" >Algorithm Note</h1>
+<h1 style="border: none;" >Algorithm Note</h1>
 
 ## Backtracking
 문제해결 방식:
