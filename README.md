@@ -1,5 +1,3 @@
-<h1 style="border: none !important;">Algorithm Note</h1>
-
 ## Backtracking
 문제해결 방식:
 + 기본적으로 모든 경우의 수를 고려하는 알고리즘으로, 상태 공간을 트리로 나타낼 수 있을 때 적합한 방식이다.
