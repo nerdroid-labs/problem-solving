@@ -1,2 +1,2 @@
 ## Algorithms
-+ [Backtracking]("https://github.com/nerdroid-labs/problem-solving/backtrackng.md")
++ [Backtracking]("https://github.com/nerdroid-labs/problem-solving/backtracking.md")
