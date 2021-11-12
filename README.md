@@ -1,2 +1,0 @@
-## Algorithms
-+ [Backtracking](./backtracking.md)
