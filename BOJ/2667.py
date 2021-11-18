@@ -1,47 +1,35 @@
 import sys
-import collections
 input = sys.stdin.readline
 
 N = int(input())
-visited = [[False] * N for _ in range(N)]
+block = []
 matrix = []
-coords = []
+visit = [[False] * N for _ in range(N)]
 
 for r in range(N):
     line = list(map(int, [c for c in input().rstrip()]))
     matrix.append(line)
 
-    for c in range(N):
-        if matrix[r][c] == 1: coords.append((r, c))
 
-block = []
-while True:
-    queue = collections.deque()
-    house_num = 0
+def dfs(r, c):
+    visit[r][c] = True
 
-    found = False
-    for r, c in coords:
-        if not visited[r][c]:
-            found = True
-            queue.append((r, c))
-            break
-
-    if not found: break
+    if not matrix[r][c]: return 0
     else:
-        while queue:
-            r, c = queue.popleft()
-            if visited[r][c]: continue
-            else:
-                visited[r][c] = True
-                house_num += 1
+        total = 1
+        for dr, dc in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            if 0 <= r + dr < N and 0 <= c + dc < N and not visit[r + dr][c + dc]:
+                total += dfs(r + dr, c + dc)
 
-                for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
-                    nr, nc = r + dy, c + dx
-                    if 0 <= nr < N and 0 <= nc < N and matrix[nr][nc] and not visited[nr][nc]:
-                        queue.append((nr, nc))
+        return total
 
-    block.append(house_num)
 
-block.sort()
+for r in range(N):
+    for c in range(N):
+        if not visit[r][c]:
+            ctr = dfs(r, c)
+            if ctr > 0:
+                block.append(ctr)
+
 print(len(block))
-print(*block, sep="\n")
+print(*sorted(block), sep="\n")
