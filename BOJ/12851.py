@@ -1,6 +1,5 @@
 import collections
 import sys
-import time
 
 sys.setrecursionlimit(10 ** 4)
 def input(): return sys.stdin.readline().rstrip()
@@ -10,7 +9,7 @@ MAX_VALUE = 100000
 N, K = list(map(int, input().split()))
 dp = dict()
 queue = collections.deque()
-queue.append((N, 0 ))
+queue.append((N, 0))
 
 min_time = float('inf')
 min_time_ctr = 0
