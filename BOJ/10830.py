@@ -22,6 +22,7 @@ def mult(mat1, mat2):
 
 	return ret
 
+
 def power(mat, n):
 	if n in dp: return dp[n]
 
