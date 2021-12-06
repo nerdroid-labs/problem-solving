@@ -14,11 +14,11 @@ def counter_clock_wise(matrix):
 
 
 def flip_vertically(matrix):
-	return matrix[::-1]
+	return [line[::-1] for line in matrix]
 
 
 def flip_horizontally(matrix):
-	return [line[::-1] for line in matrix]
+	return matrix[::-1]
 
 
 def print_matrix(matrix):
