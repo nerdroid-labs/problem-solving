@@ -18,8 +18,10 @@ def counter_clock_wise(matrix):
 def flip_vertically(matrix):
 	return matrix[::-1]
 
+
 def flip_horizontally(matrix):
 	return [line[::-1] for line in matrix]
+
 
 def print_matrix(matrix):
 	print(*matrix, sep="\n", end="\n\n")
