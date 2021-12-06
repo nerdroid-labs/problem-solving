@@ -3,9 +3,7 @@ def get_matrix(N, M):
 
 
 def clock_wise(matrix):
-	ret = []
-	for line in zip(*matrix[::-1]):
-		ret.append(list(line))
+	ret = [list(line) for line in zip(*matrix[::-1])]
 	return ret
 
 
