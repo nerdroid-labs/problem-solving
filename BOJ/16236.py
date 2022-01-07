@@ -18,7 +18,7 @@ day = 0
 eat = 0
 size = 2
 visit_for_reset = [[False] * N for _ in range(N)]
-visit = [v[:] for v in visit_for_reset]
+visit = [visit_matrix[:] for visit_matrix in visit_for_reset]
 
 heap = []
 heapq.heappush(heap, (0, shark_r, shark_c))
@@ -40,7 +40,7 @@ while heap:
 
         dist = 0
         sea[r][c] = 0
-        visit = [v[:] for v in visit_for_reset]
+        visit = [visit_matrix[:] for visit_matrix in visit_for_reset]
         heap = []
 
     for dr, dc in [(1, 0), (0, -1), (0, 1), (-1, 0)]:

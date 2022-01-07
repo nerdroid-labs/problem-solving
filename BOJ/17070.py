@@ -8,10 +8,10 @@ def input():
 
 N = int(input())
 answer = 0
-m = []
+matrix = []
 
 for _ in range(N):
-	m.append(list(map(int, input().split())))
+	matrix.append(list(matrix(int, input().split())))
 
 stack = collections.deque()
 stack.append((0, 1, 0))
@@ -23,13 +23,13 @@ while stack:
 		answer += 1
 		continue
 
-	if d in (0, 2) and 0 <= c + 1 < N and not m[r][c + 1]:
+	if d in (0, 2) and 0 <= c + 1 < N and not matrix[r][c + 1]:
 		stack.append((r, c + 1, 0))
 
-	if d in (1, 2) and 0 <= r + 1 < N and not m[r + 1][c]:
+	if d in (1, 2) and 0 <= r + 1 < N and not matrix[r + 1][c]:
 		stack.append((r + 1, c, 1))
 
-	if 0 <= r + 1 < N and 0 <= c + 1 < N and not m[r][c + 1] and not m[r + 1][c] and not m[r + 1][c + 1]:
+	if 0 <= r + 1 < N and 0 <= c + 1 < N and not matrix[r][c + 1] and not matrix[r + 1][c] and not matrix[r + 1][c + 1]:
 		stack.append((r + 1, c + 1, 2))
 
 print(answer)

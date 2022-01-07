@@ -22,5 +22,5 @@ N = int(input())
 mat = [["" for j in range(N) ] for i in range(N)]
 getStars(N, mat, 0, 0)
 
-for m in mat:
-    print("".join(m))
+for matrix in mat:
+    print("".join(matrix))

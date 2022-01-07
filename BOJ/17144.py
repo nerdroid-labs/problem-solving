@@ -7,13 +7,13 @@ def input():
 
 
 R, C, T = list(map(int, input().split()))
-m = []
+matrix = []
 air_purifier = []
 
 for r in range(R):
-	m.append(list(map(int, input().split())))
+	matrix.append(list(matrix(int, input().split())))
 	for c in range(C):
-		if m[r][c] == -1:
+		if matrix[r][c] == -1:
 			air_purifier.append((r, c))
 
 up, down = air_purifier
@@ -22,19 +22,19 @@ for _ in range(T):
 	change = collections.defaultdict(int)
 	for r in range(R):
 		for c in range(C):
-			if m[r][c] > 0:
+			if matrix[r][c] > 0:
 				ctr = 0
 				for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)):
 					nr, nc = dr + r, dc + c
 
-					if 0 <= nr < R and 0 <= nc < C and m[nr][nc] >= 0:
-						change[(nr, nc)] += m[r][c] // 5
+					if 0 <= nr < R and 0 <= nc < C and matrix[nr][nc] >= 0:
+						change[(nr, nc)] += matrix[r][c] // 5
 						ctr += 1
 
-				change[(r, c)] -= ctr * (m[r][c] // 5)
+				change[(r, c)] -= ctr * (matrix[r][c] // 5)
 
 	for r, c in change.keys():
-		m[r][c] += change[(r, c)]
+		matrix[r][c] += change[(r, c)]
 
 	r, c = up
 	r -= 1
@@ -45,7 +45,7 @@ for _ in range(T):
 				direction += 1
 				continue
 			else:
-				m[r][c] = m[r - 1][c]
+				matrix[r][c] = matrix[r - 1][c]
 				r -= 1
 
 		if direction == 1:
@@ -53,7 +53,7 @@ for _ in range(T):
 				direction += 1
 				continue
 			else:
-				m[r][c] = m[r][c + 1]
+				matrix[r][c] = matrix[r][c + 1]
 				c += 1
 
 		if direction == 2:
@@ -61,15 +61,15 @@ for _ in range(T):
 				direction += 1
 				continue
 			else:
-				m[r][c] = m[r + 1][c]
+				matrix[r][c] = matrix[r + 1][c]
 				r += 1
 
 		if direction == 3:
 			if c == 1:
-				m[r][c] = 0
+				matrix[r][c] = 0
 				break
 			else:
-				m[r][c] = m[r][c - 1]
+				matrix[r][c] = matrix[r][c - 1]
 				c -= 1
 
 	r, c = down
@@ -81,7 +81,7 @@ for _ in range(T):
 				direction += 1
 				continue
 			else:
-				m[r][c] = m[r + 1][c]
+				matrix[r][c] = matrix[r + 1][c]
 				r += 1
 
 		if direction == 1:
@@ -89,7 +89,7 @@ for _ in range(T):
 				direction += 1
 				continue
 			else:
-				m[r][c] = m[r][c + 1]
+				matrix[r][c] = matrix[r][c + 1]
 				c += 1
 
 		if direction == 2:
@@ -97,15 +97,15 @@ for _ in range(T):
 				direction += 1
 				continue
 			else:
-				m[r][c] = m[r - 1][c]
+				matrix[r][c] = matrix[r - 1][c]
 				r -= 1
 
 		if direction == 3:
 			if c == 1:
-				m[r][c] = 0
+				matrix[r][c] = 0
 				break
 			else:
-				m[r][c] = m[r][c - 1]
+				matrix[r][c] = matrix[r][c - 1]
 				c -= 1
 
-print(sum([sum(line) for line in m]) + 2)
+print(sum([sum(line) for line in matrix]) + 2)

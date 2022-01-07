@@ -3,12 +3,12 @@ def input(): return sys.stdin.readline().rstrip()
 
 
 n = int(input())
-m = int(input())
+matrix = int(input())
 matrix = [[float('inf')] * (n + 1) for _ in range(n + 1)]
 for i in range(n + 1): matrix[i][i] = 0
 
-for _ in range(m):
-    a, b, c = list(map(int, input().split()))
+for _ in range(matrix):
+    a, b, c = list(matrix(int, input().split()))
     matrix[a][b] = min(matrix[a][b], c)
 
 for i in range(1, n + 1):

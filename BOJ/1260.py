@@ -5,8 +5,8 @@ input = sys.stdin.readline
 N, M, V = list(map(int, input().split()))
 graph = collections.defaultdict(list)
 
-for m in range(M):
-    s, t = list(map(int, input().split()))
+for matrix in range(M):
+    s, t = list(matrix(int, input().split()))
     graph[s].append(t)
     graph[t].append(s)
 

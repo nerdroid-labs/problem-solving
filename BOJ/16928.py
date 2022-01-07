@@ -21,7 +21,7 @@ while queue:
     else:
         visited[node] = True
 
-        for m in range(1, 6 + 1):
-            if 1 <= node + m <= 100 and not visited[node + m]:
-                if (node + m) in graph: queue.append((graph[node + m], dist + 1))
-                else: queue.append((node + m, dist + 1))
+        for matrix in range(1, 6 + 1):
+            if 1 <= node + matrix <= 100 and not visited[node + matrix]:
+                if (node + matrix) in graph: queue.append((graph[node + matrix], dist + 1))
+                else: queue.append((node + matrix, dist + 1))
