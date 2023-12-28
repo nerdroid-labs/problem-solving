@@ -6,20 +6,11 @@ def input():
 
 
 N, K = list(map(int, input().split()))
-item = []
-
-for _ in range(N):
-	item.append(list(map(int, input().split())))
-
-dp = [[0] * (K + 1) for _ in range(N)]
-
+dp = [0] * (K + 1)
 for n in range(N):
-	w, visit_matrix = item[n]
+	weight, value = list(map(int, input().split()))
+	for w in reversed(range(1, K + 1)):
+		if weight <= w:
+			dp[w] = max(dp[w], dp[w - weight] + value)
 
-	for k in range(K + 1):
-		if w > k:
-			dp[n][k] = dp[n-1][k]
-		else:
-			dp[n][k] = max(dp[n-1][k], dp[n-1][k - w] + visit_matrix)
-
-print(dp[-1][-1])
+print(dp[-1])
